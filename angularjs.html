@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+<title>AngularJS</title>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jQuery.js"></script>
+
+<script>
+	var demoApp = angular.module('demoApp',[]);
+		
+	demoApp.controller('SimpleController', function ($scope){
+		$scope.customers = [
+			{name:'Hadi', city='Sarijadi'},
+			{name:'Wandhi', city='Kopo'},
+			{name:'Gilang', city='Buah Batu'},
+			{name:'Syukur', city='Cibaduyut'},
+			{name:'Fahmi', city='Pasir Kaliki'},
+			{name:'Febri', city='Majalengka'},
+			{name:'Alvin', city='Bandung'}
+		];
+	});
+</script>
+
+</head>
+
+<body>
+	<input type="text" ng-model="name"/> {{ name }}
+	
+	<div ng-controller="SimpleController">		
+		<ul>
+			<li ng-repeat="cust in customers">{{ cust.name | uppercase }} - {{ cust.city | uppercase }}</li>
+		</ul>
+	</div>
+</body>
+</html>
